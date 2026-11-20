@@ -1,0 +1,679 @@
+
+:root {
+    --gold: #e8bd61;
+    --light-gold: #ffe9a8;
+    --red: #8e1728;
+    --dark-red: #390914;
+    --cream: #fff4d5;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at top, #8a2831, #26060d 75%);
+    font-family: 'Noto Serif Devanagari', serif;
+    color: var(--cream);
+    overflow-x: hidden;
+    padding: 25px 12px;
+}
+
+/* Background */
+
+.ambient-glow {
+    position: fixed;
+    width: 400px;
+    height: 400px;
+    background: var(--gold);
+    filter: blur(150px);
+    opacity: 0.12;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    pointer-events: none;
+}
+
+#particles {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 5;
+}
+
+/* Opening Screen */
+
+.opening {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background:
+        radial-gradient(circle, #842b36, #27060e 85%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    transition: opacity 1s, visibility 1s;
+}
+
+.opening.hide {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.opening-content {
+    width: 100%;
+    max-width: 500px;
+    padding: 45px 25px;
+    border: 2px solid var(--gold);
+    outline: 1px solid var(--gold);
+    outline-offset: 8px;
+    animation: appear 1.2s ease;
+}
+
+.opening-flower {
+    font-size: 55px;
+    margin-bottom: 15px;
+}
+
+.opening-content > p:first-of-type {
+    color: var(--light-gold);
+    letter-spacing: 3px;
+}
+
+.opening h1 {
+    font-size: 40px;
+    color: var(--light-gold);
+    margin: 18px 0;
+}
+
+.opening-names {
+    font-family: 'Tiro Devanagari Hindi', serif;
+    font-size: clamp(30px, 7vw, 43px);
+    color: var(--light-gold);
+    margin: 20px 0;
+}
+
+.opening-names span {
+    color: #ffb2b2;
+    font-size: 24px;
+}
+
+.opening-subtitle {
+    font-size: 13px;
+    margin-bottom: 30px;
+}
+
+.opening button {
+    background: linear-gradient(135deg, #ffebae, #d49b36);
+    color: #4b1019;
+    border: none;
+    border-radius: 30px;
+    padding: 14px 28px;
+    font-family: inherit;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.opening button:hover {
+    transform: scale(1.06);
+    box-shadow: 0 0 25px #e9c36c;
+}
+
+.opening small {
+    display: block;
+    margin-top: 25px;
+    color: #f5dca4;
+}
+
+/* Main Invitation */
+
+.invitation {
+    display: none;
+    width: 100%;
+    max-width: 850px;
+    margin: 20px auto;
+    position: relative;
+    padding: 15px;
+    background: linear-gradient(
+        135deg,
+        #fff0ad,
+        #c58b2e,
+        #ffe8a0,
+        #a86d1f
+    );
+    box-shadow:
+        0 0 30px #0009,
+        0 0 65px #d9a74633;
+    animation: appear 1.5s ease;
+}
+
+.invitation.show {
+    display: block;
+}
+
+.invitation::before {
+    content: "";
+    position: absolute;
+    inset: 7px;
+    border: 2px solid #8c571e;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.invitation::after {
+    content: "❖";
+    position: absolute;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 28px;
+    color: #8b541b;
+}
+
+.header,
+.couple-section,
+.message-section,
+.events-section,
+.feast-section,
+.venue-section,
+.footer {
+    position: relative;
+    text-align: center;
+    background:
+        linear-gradient(145deg, #751d2b, #3a0b16 70%, #651827);
+    padding: 35px 25px;
+}
+
+.header {
+    padding-top: 65px;
+}
+
+.om {
+    font-size: 55px;
+    color: var(--light-gold);
+    text-shadow: 0 0 20px #f5ce76;
+}
+
+.ganesh-mantra {
+    font-size: 17px;
+    color: var(--light-gold);
+    margin: 10px 0;
+}
+
+.mantra {
+    font-size: 13px;
+    line-height: 2;
+    color: #f4dbad;
+}
+
+.gold-line {
+    height: 2px;
+    max-width: 250px;
+    margin: 22px auto;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--gold),
+        transparent
+    );
+}
+
+.header h1 {
+    font-size: clamp(25px, 5vw, 40px);
+    color: var(--light-gold);
+    text-shadow: 0 0 15px #e7b84f55;
+}
+
+.sub-heading {
+    color: var(--gold);
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+/* Couple */
+
+.couple-section {
+    padding: 30px 25px;
+}
+
+.couple-decoration {
+    font-size: 28px;
+    margin: 10px;
+}
+
+.couple-names {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+}
+
+.name-box {
+    flex: 1;
+    padding: 18px 10px;
+    border: 1px solid #d8ad59;
+    background: #ffffff08;
+    border-radius: 10px;
+}
+
+.name-box .label {
+    color: var(--gold);
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.name-box h2 {
+    color: var(--light-gold);
+    font-size: clamp(20px, 4vw, 31px);
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.name-box p {
+    font-size: 12px;
+    line-height: 2;
+    color: #f2dcb7;
+}
+
+.name-box .family-address {
+    color: var(--gold);
+    margin-top: 10px;
+}
+
+.heart-divider {
+    color: #ffcc8c;
+    font-size: 23px;
+}
+
+.heart-divider p {
+    font-size: 11px;
+    writing-mode: vertical-rl;
+    margin: 8px auto;
+    color: var(--gold);
+}
+
+/* Message */
+
+.message-section {
+    padding-top: 25px;
+}
+
+.message-section h2,
+.events-section h2,
+.venue-section h2 {
+    color: var(--light-gold);
+    font-size: 23px;
+}
+
+.separator {
+    color: var(--gold);
+    margin: 18px 0;
+    letter-spacing: 6px;
+}
+
+.message-section p {
+    max-width: 620px;
+    margin: 15px auto;
+    line-height: 2.3;
+    font-size: 14px;
+    color: #f8e8ca;
+}
+
+/* Events */
+
+.events-section {
+    padding: 35px 25px;
+}
+
+.event-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    max-width: 600px;
+    margin: 25px auto 0;
+}
+
+.event-card {
+    padding: 22px 12px;
+    background: linear-gradient(
+        145deg,
+        #7c2632,
+        #4a101c
+    );
+    border: 1px solid #d6ad61;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px #0005;
+}
+
+.event-icon {
+    display: block;
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.event-card h3 {
+    color: var(--light-gold);
+    font-size: 17px;
+    margin-bottom: 10px;
+}
+
+.event-card strong {
+    display: block;
+    color: #fff1ca;
+    font-size: 13px;
+}
+
+.event-card p {
+    font-size: 12px;
+    color: var(--gold);
+    margin-top: 6px;
+}
+
+.main-event {
+    background: linear-gradient(145deg, #a34235, #65121e);
+    box-shadow: 0 0 20px #e0b45b33;
+}
+
+/* Feast */
+
+.feast-section {
+    margin: 0;
+    background:
+        linear-gradient(135deg, #9b2935, #54101c);
+    border-top: 2px solid var(--gold);
+    border-bottom: 2px solid var(--gold);
+    padding: 40px 20px;
+}
+
+.feast-icon {
+    font-size: 38px;
+}
+
+.feast-section h2 {
+    color: var(--light-gold);
+    font-size: 32px;
+    margin: 12px 0;
+}
+
+.feast-date {
+    font-size: 17px;
+    color: #fff0c5;
+    margin-top: 15px;
+}
+
+.feast-time {
+    display: inline-block;
+    margin: 15px 0;
+    padding: 10px 30px;
+    border: 1px solid var(--gold);
+    border-radius: 30px;
+    color: var(--light-gold);
+    font-size: 21px;
+}
+
+.feast-section > p:last-child {
+    font-size: 13px;
+    color: #f6dfba;
+}
+
+/* Venue */
+
+.venue-section p {
+    color: #f5dfbd;
+    font-size: 14px;
+    line-height: 2.3;
+    margin: 15px auto;
+}
+
+/* Footer */
+
+.footer {
+    padding-bottom: 55px;
+}
+
+.footer h2 {
+    color: var(--gold);
+    font-size: 20px;
+}
+
+.father-name {
+    color: var(--light-gold);
+    font-size: 23px;
+    margin: 15px 0;
+    font-weight: bold;
+}
+
+.footer p {
+    font-size: 13px;
+    line-height: 2;
+}
+
+.footer-blessing {
+    margin: 25px auto;
+    max-width: 450px;
+    font-size: 13px;
+    line-height: 2;
+    color: #f4d9a4;
+}
+
+.footer h3 {
+    color: var(--light-gold);
+    font-size: 22px;
+}
+
+.footer-flower {
+    color: var(--gold);
+    margin-top: 25px;
+    font-size: 25px;
+    letter-spacing: 8px;
+}
+
+.ornament {
+    text-align: center;
+    background: #58121e;
+    color: var(--gold);
+    padding: 12px;
+    font-size: 25px;
+}
+
+/* Floating Particles */
+
+.particle {
+    position: absolute;
+    bottom: -30px;
+    color: #ffe0a0;
+    animation: floatUp linear forwards;
+    pointer-events: none;
+    text-shadow: 0 0 10px #ffd36c;
+}
+
+@keyframes floatUp {
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Action Buttons */
+
+.action-buttons {
+    display: none;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 25px auto;
+}
+
+.action-buttons.show {
+    display: flex;
+}
+
+.action-buttons button {
+    padding: 13px 24px;
+    border: 1px solid var(--gold);
+    border-radius: 30px;
+    background: linear-gradient(135deg, #ffe5a0, #bd852d);
+    color: #3a1015;
+    font-family: inherit;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.action-buttons button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 5px 20px #e4b95b55;
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 10px 5px;
+    }
+
+    .invitation {
+        padding: 10px;
+    }
+
+    .header,
+    .couple-section,
+    .message-section,
+    .events-section,
+    .feast-section,
+    .venue-section,
+    .footer {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .couple-names {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .name-box {
+        width: 100%;
+    }
+
+    .heart-divider {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .heart-divider p {
+        writing-mode: horizontal-tb;
+    }
+
+    .event-grid {
+        gap: 10px;
+    }
+
+    .event-card {
+        padding: 18px 7px;
+    }
+
+    .event-card h3 {
+        font-size: 15px;
+    }
+
+    .event-card strong {
+        font-size: 11px;
+    }
+
+    .message-section p {
+        font-size: 12px;
+    }
+
+    .name-box h2 {
+        font-size: 25px;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+        padding: 0 15px;
+    }
+
+    .action-buttons button {
+        width: 100%;
+    }
+}
+
+/* Print */
+
+@media print {
+
+    @page {
+        size: A4 portrait;
+        margin: 7mm;
+    }
+
+    body {
+        background: white !important;
+        padding: 0;
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+    }
+
+    .opening,
+    .action-buttons,
+    #particles,
+    .ambient-glow {
+        display: none !important;
+    }
+
+    .invitation {
+        display: block !important;
+        max-width: 100%;
+        margin: 0;
+        padding: 8px;
+        box-shadow: none;
+    }
+
+    .header,
+    .couple-section,
+    .message-section,
+    .events-section,
+    .feast-section,
+    .venue-section,
+    .footer {
+        break-inside: avoid;
+    }
+
+    .event-card:hover {
+        transform: none;
+    }
+}
